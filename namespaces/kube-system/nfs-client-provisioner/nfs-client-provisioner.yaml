@@ -3,7 +3,6 @@ kind: HelmRelease
 metadata:
   name: nfs-client-provisioner
   namespace: kube-system
-  creationTimestamp: null
 spec:
   interval: 5m
   chart:
