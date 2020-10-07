@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: 56k-jp
+  namespace: kube-system
+spec:
+  secretName: 56k-jp-tls
+  issuerRef:
+    name: letsencrypt-production
+    kind: ClusterIssuer
+  commonName: '56k.jp'
+  dnsNames:
+    - 56k.jp
+    - "*.56k.jp"
