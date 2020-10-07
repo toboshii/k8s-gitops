@@ -28,5 +28,6 @@ spec:
     timeout: 1m
     cleanupOnFail: true
   values:
-    extraArgs: 
-      default-ssl-certificate: "kube-system/56k-jp-tls"
+    controller:
+      extraArgs: 
+        default-ssl-certificate: "kube-system/56k-jp-tls"
