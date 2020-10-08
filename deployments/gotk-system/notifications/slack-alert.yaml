@@ -14,3 +14,7 @@ spec:
       name: '*'
     - kind: HelmRelease
       name: '*'
+    - kind: HelmChart
+      name: '*'
+    - kind: HelmRepository
+      name: '*'

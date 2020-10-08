@@ -6,7 +6,7 @@ metadata:
   namespace: gotk-system
 spec:
   interval: 10m0s
-  path: ./namespaces
+  path: ./deployments
   prune: true
   sourceRef:
     kind: GitRepository
