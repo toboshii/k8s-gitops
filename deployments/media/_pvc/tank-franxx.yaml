@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nfs-tank-franxx-pv
+  name: media-nfs-tank-franxx
 spec:
-  storageClassName: tank-franxx
+  storageClassName: media-tank-franxx
   capacity:
     storage: 1Mi
   accessModes:
@@ -24,11 +24,12 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: nfs-tank-franxx-pvc
+  name: nfs-tank-franxx
+  namespace: media
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: tank-franxx
+  storageClassName: media-tank-franxx
   resources:
     requests:
       storage: 1Mi
