@@ -9,6 +9,7 @@ resources:
 - ./helm-chart-repositories/jetstack-charts.yaml
 - ./helm-chart-repositories/kubernetes-stable-charts.yaml
 - ./helm-chart-repositories/k8s-at-home-charts.yaml
+- ./helm-chart-repositories/longhorn-charts.yaml
 - ./notifications/slack-alert.yaml
 - ./notifications/slack-provider.yaml
 - ./notifications/slack-secret-sealed.yaml
