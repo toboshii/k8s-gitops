@@ -1,0 +1,43 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: minio
+  namespace: utility
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: minio
+      version: 7.2.0
+      sourceRef:
+        kind: HelmRepository
+        name: minio-charts
+        namespace: gotk-system
+      interval: 5m
+  test:
+    enable: false # Enable helm test
+  install:
+    remediation: # perform remediation when helm install fails
+      retries: 3
+  upgrade:
+    remediation: # perform remediation when helm upgrade fails
+      retries: 3
+      remediateLastFailure: true # remediate the last failure, when no retries remain
+    cleanupOnFail: true
+  rollback:
+    timeout: 1m
+    cleanupOnFail: true
+  values:
+    existingSecret: minio-secret
+    persistence:
+      existingClaim: nfs-data-franxx
+      subPath: minio
+    ingress:
+      enabled: true
+      hosts: 
+        - s3.56k.jp
+        - s.56k.jp
+      tls:
+        - hosts:
+          - s3.56k.jp
+          - s.56k.jp
