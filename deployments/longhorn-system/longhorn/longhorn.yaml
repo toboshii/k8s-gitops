@@ -37,7 +37,3 @@ spec:
     ingress:
       enabled: true
       host: longhorn.56k.jp
-      tls: true
-      annotations:
-        kubernetes.io/ingress.class: nginx
-        nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
