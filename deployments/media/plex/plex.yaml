@@ -64,7 +64,9 @@ spec:
         - watch.56k.jp
     persistence:
       config:
-        claimName: plex-config
+        storageClass: longhorn
+        size: 25Gi
+        accessMode: ReadWriteOnce
       transcode:
         enabled: false
         emptyDir:
