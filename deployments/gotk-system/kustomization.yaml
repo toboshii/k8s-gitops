@@ -11,6 +11,8 @@ resources:
 - ./helm-chart-repositories/k8s-at-home-charts.yaml
 - ./helm-chart-repositories/longhorn-charts.yaml
 - ./helm-chart-repositories/minio-charts.yaml
+- ./helm-chart-repositories/prometheus-community-charts.yaml
+- ./helm-chart-repositories/grafana-loki-charts.yaml
 - ./notifications/slack-alert.yaml
 - ./notifications/slack-provider.yaml
 - ./notifications/slack-secret-sealed.yaml
