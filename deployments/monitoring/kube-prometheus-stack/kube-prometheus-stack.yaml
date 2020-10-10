@@ -1,0 +1,146 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: monitoring
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      version: 10.0.1
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community-charts
+        namespace: gotk-system
+      interval: 5m
+  test:
+    enable: false # Enable helm test
+  install:
+    remediation: # perform remediation when helm install fails
+      retries: 3
+  upgrade:
+    remediation: # perform remediation when helm upgrade fails
+      retries: 3
+      remediateLastFailure: true # remediate the last failure, when no retries remain
+    cleanupOnFail: true
+  rollback:
+    timeout: 1m
+    cleanupOnFail: true
+  # Depends on having the sealed secret to un-encrypted required secrets.
+  dependsOn:
+    - name: sealed-secrets
+      namespace: kube-system
+  timeout: 20m
+  values:
+    prometheusOperator:
+      enabled: true
+      manageCrds: true
+      createCustomResource: true
+    alertmanager:
+      enabled: true
+      ingress:
+        enabled: true
+        hosts:
+          - alertmanager.56k.jp
+        tls:
+          - hosts:
+              - alertmanager.56k.jp
+    grafana:
+      enabled: true
+      ingress:
+        enabled: true
+        hosts:
+          - grafana.56k.jp
+        tls:
+          - hosts:
+              - grafana.56k.jp
+      plugins:
+        - natel-discrete-panel
+        - pr0ps-trackmap-panel
+        - grafana-piechart-panel
+        - vonage-status-panel
+        - grafana-worldmap-panel
+        - btplc-status-dot-panel
+      dashboardProviders:
+        dashboardproviders.yaml:
+          apiVersion: 1
+          providers:
+            - name: 'default'
+              orgId: 1
+              folder: ''
+              type: file
+              disableDeletion: false
+              editable: true
+              options:
+                path: /var/lib/grafana/dashboards/default
+      dashboards:
+        default:
+          gitops-toolkit:
+            url: https://raw.githubusercontent.com/fluxcd/toolkit/main/manifests/monitoring/grafana/dashboards/control-plane.json
+            datasource: Prometheus
+          nginx-dashboard:
+            url: https://raw.githubusercontent.com/kubernetes/ingress-nginx/master/deploy/grafana/dashboards/nginx.json
+            datasource: Prometheus
+          1-node-exporter:
+            url: https://grafana.com/api/dashboards/11074/revisions/4/download
+            datasource: Prometheus
+          zfs:
+            url: https://grafana.com/api/dashboards/11337/revisions/1/download
+            datasource: Prometheus 
+          blocky:
+            url: https://raw.githubusercontent.com/0xERR0R/blocky/master/docs/blocky-grafana.json
+            datasource: Prometheus
+          apc-ups:
+            url: https://raw.githubusercontent.com/onedr0p/k3s-gitops/master/integrations/dashboards/apc-ups.json
+            datasource: Prometheus
+          speedtest:
+            url: https://raw.githubusercontent.com/billimek/k8s-gitops/master/monitoring/prometheus-operator/grafana-dashboards/internet_speed.json
+            datasource: Prometheus
+      sidecar:
+        datasources:
+          enabled: true
+        dashboards:
+          enabled: true
+          searchNamespace: ALL
+      additionalDataSources:
+        - name: loki
+          type: loki
+          access: proxy
+          url: http://loki.logging.svc.cluster.local:3100
+      admin:
+        existingSecret: 'grafana-admin-creds'
+        userKey: admin-user
+        passwordKey: admin-password
+      grafana.ini:
+        server:
+          root_url: https://grafana.56k.jp
+        auth.basic:
+          disable_login_form: false
+    prometheus:
+      ingress:
+        enabled: true
+        hosts:
+          - prometheus.56k.jp
+        tls:
+          - hosts:
+              - prometheus.56k.jp
+      prometheusSpec:
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: longhorn
+              resources:
+                requests:
+                  storage: 50Gi
+        ruleSelector: {}
+        ruleNamespaceSelector: {}
+        ruleSelectorNilUsesHelmValues: false
+        serviceMonitorSelector: {}
+        serviceMonitorNamespaceSelector: {}
+        serviceMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelector: {}
+        podMonitorNamespaceSelector: {}
+        podMonitorSelectorNilUsesHelmValues: false
+    kube-state-metrics:
+    prometheus-node-exporter:

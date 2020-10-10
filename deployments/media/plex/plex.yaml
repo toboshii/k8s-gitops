@@ -69,7 +69,9 @@ spec:
       data:
         enabled: false
       config:
+        storageClass: longhorn
         size: 250Gi
+        accessMode: ReadWriteOnce
       extraMounts:
       - name: tank-franxx
         claimName: nfs-tank-franxx
