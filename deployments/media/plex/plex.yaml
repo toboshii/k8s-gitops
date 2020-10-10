@@ -63,16 +63,13 @@ spec:
       - hosts:
         - watch.56k.jp
     persistence:
-      config:
-        storageClass: longhorn
-        size: 25Gi
-        accessMode: ReadWriteOnce
       transcode:
-        enabled: false
-        emptyDir:
-          medium: "Memory"
+        enabled: true
+        size: 40Gi
       data:
         enabled: false
+      config:
+        size: 250Gi
       extraMounts:
       - name: tank-franxx
         claimName: nfs-tank-franxx
