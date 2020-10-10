@@ -95,7 +95,7 @@ spec:
             url: https://raw.githubusercontent.com/onedr0p/k3s-gitops/master/integrations/dashboards/apc-ups.json
             datasource: Prometheus
           speedtest:
-            url: https://raw.githubusercontent.com/billimek/k8s-gitops/master/monitoring/prometheus-operator/grafana-dashboards/internet_speed.json
+            url: https://raw.githubusercontent.com/billimek/k8s-gitops/master/monitoring/kube-prometheus-stack/grafana-dashboards/internet_speed.json
             datasource: Prometheus
       sidecar:
         datasources:
