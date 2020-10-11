@@ -33,7 +33,6 @@ spec:
       namespace: kube-system
   timeout: 20m
   values:
-    fullnameOverride: prometheus
     prometheusOperator:
       fullnameOverride: prometheus-operator
       enabled: true
