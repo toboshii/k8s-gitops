@@ -29,5 +29,15 @@ spec:
     cleanupOnFail: true
   values:
     controller:
+      service:
+        type: LoadBalancer
+        externalIPs:
+        - 10.0.35.64
+        externalTrafficPolicy: Local
+      metrics:
+        enabled: true
+        serviceMonitor:
+          enabled: true
+          namespace: kube-system
       extraArgs: 
         default-ssl-certificate: "kube-system/56k-jp-tls"
