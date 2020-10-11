@@ -38,6 +38,7 @@ spec:
       manageCrds: true
       createCustomResource: true
     alertmanager:
+      fullnameOverride: alertmanager
       enabled: true
       ingress:
         enabled: true
@@ -47,6 +48,7 @@ spec:
           - hosts:
               - alertmanager.56k.jp
     grafana:
+      fullnameOverride: grafana
       enabled: true
       ingress:
         enabled: true
@@ -118,6 +120,7 @@ spec:
         auth.basic:
           disable_login_form: false
     prometheus:
+      fullnameOverride: prometheus
       ingress:
         enabled: true
         hosts:
@@ -143,4 +146,6 @@ spec:
         podMonitorNamespaceSelector: {}
         podMonitorSelectorNilUsesHelmValues: false
     kube-state-metrics:
+      fullnameOverride: kube-state-metrics
     prometheus-node-exporter:
+      fullnameOverride: node-exporter
