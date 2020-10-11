@@ -1,0 +1,67 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: kustomize-controller
+  labels:
+    app.kubernetes.io/instance: gotk-system
+    app.kubernetes.io/version: latest
+spec:
+  namespaceSelector:
+    matchNames:
+    - gotk-system
+  selector:
+    matchLabels:
+      app: kustomize-controller
+  podMetricsEndpoints:
+  - port: http-prom
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: source-controller
+  labels:
+    app.kubernetes.io/instance: gotk-system
+    app.kubernetes.io/version: latest
+spec:
+  namespaceSelector:
+    matchNames:
+    - gotk-system
+  selector:
+    matchLabels:
+      app: source-controller
+  podMetricsEndpoints:
+  - port: http-prom
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: helm-controller
+  labels:
+    app.kubernetes.io/instance: gotk-system
+    app.kubernetes.io/version: latest
+spec:
+  namespaceSelector:
+    matchNames:
+    - gotk-system
+  selector:
+    matchLabels:
+      app: helm-controller
+  podMetricsEndpoints:
+  - port: http-prom
+---
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: notification-controller
+  labels:
+    app.kubernetes.io/instance: gotk-system
+    app.kubernetes.io/version: latest
+spec:
+  namespaceSelector:
+    matchNames:
+    - gotk-system
+  selector:
+    matchLabels:
+      app: notification-controller
+  podMetricsEndpoints:
+  - port: http-prom

@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - ./toolkit-components.yaml
 - ./toolkit-kustomization.yaml
+- ./toolkit-monitoring.yaml
 - ./toolkit-source.yaml
 - ./helm-chart-repositories/bitnami-charts.yaml
 - ./helm-chart-repositories/ingress-nginx-charts.yaml
