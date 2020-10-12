@@ -152,6 +152,8 @@ spec:
         targetPort: 10257
       serviceMonitor:
         https: true
+        insecureSkipVerify: true
+        serverName: kubernetes
     kube-state-metrics:
       fullnameOverride: kube-state-metrics
     prometheus-node-exporter:
