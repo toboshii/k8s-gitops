@@ -146,6 +146,8 @@ spec:
         podMonitorSelector: {}
         podMonitorNamespaceSelector: {}
         podMonitorSelectorNilUsesHelmValues: false
+    kubeEtcd:
+      enabled: false
     kubeControllerManager:
       service:
         port: 10257
