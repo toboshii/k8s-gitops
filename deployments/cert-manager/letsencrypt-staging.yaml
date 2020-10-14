@@ -1,3 +1,4 @@
+---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
@@ -9,9 +10,9 @@ spec:
     privateKeySecretRef:
       name: letsencrypt-staging
     solvers:
-    - dns01:
-        cloudflare:
-          email: lucashayes@hindbra.in
-          apiKeySecretRef:
-            name: cloudflare-api-key
-            key: api-key
+      - dns01:
+          cloudflare:
+            email: lucashayes@hindbra.in
+            apiKeySecretRef:
+              name: cloudflare-api-key
+              key: api-key

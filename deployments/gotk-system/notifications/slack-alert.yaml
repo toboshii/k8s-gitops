@@ -1,3 +1,4 @@
+---
 apiVersion: notification.toolkit.fluxcd.io/v1beta1
 kind: Alert
 metadata:
@@ -9,12 +10,12 @@ spec:
   eventSeverity: info
   eventSources:
     - kind: GitRepository
-      name: '*'
+      name: "*"
     - kind: Kustomization
-      name: '*'
+      name: "*"
     - kind: HelmRelease
-      name: '*'
+      name: "*"
     - kind: HelmChart
-      name: '*'
+      name: "*"
     - kind: HelmRepository
-      name: '*'
+      name: "*"

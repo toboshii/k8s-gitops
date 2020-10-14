@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -14,19 +15,6 @@ spec:
         name: prometheus-community-charts
         namespace: gotk-system
       interval: 5m
-  test:
-    enable: false # Enable helm test
-  install:
-    remediation: # perform remediation when helm install fails
-      retries: 3
-  upgrade:
-    remediation: # perform remediation when helm upgrade fails
-      retries: 3
-      remediateLastFailure: true # remediate the last failure, when no retries remain
-    cleanupOnFail: true
-  rollback:
-    timeout: 1m
-    cleanupOnFail: true
   # Depends on having the sealed secret to un-encrypted required secrets.
   dependsOn:
     - name: sealed-secrets
@@ -69,9 +57,9 @@ spec:
         dashboardproviders.yaml:
           apiVersion: 1
           providers:
-            - name: 'default'
+            - name: "default"
               orgId: 1
-              folder: ''
+              folder: ""
               type: file
               disableDeletion: false
               editable: true
@@ -90,7 +78,7 @@ spec:
             datasource: Prometheus
           zfs:
             url: https://grafana.com/api/dashboards/7845/revisions/4/download
-            datasource: Prometheus 
+            datasource: Prometheus
           blocky:
             url: https://raw.githubusercontent.com/0xERR0R/blocky/master/docs/blocky-grafana.json
             datasource: Prometheus
@@ -112,7 +100,7 @@ spec:
           access: proxy
           url: http://loki.logging.svc.cluster.local:3100
       admin:
-        existingSecret: 'grafana-admin-creds'
+        existingSecret: "grafana-admin-creds"
         userKey: admin-user
         passwordKey: admin-password
       grafana.ini:

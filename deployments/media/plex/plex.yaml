@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -14,19 +15,6 @@ spec:
         name: k8s-at-home-charts
         namespace: gotk-system
       interval: 5m
-  test:
-    enable: false # Enable helm test
-  install:
-    remediation: # perform remediation when helm install fails
-      retries: 3
-  upgrade:
-    remediation: # perform remediation when helm upgrade fails
-      retries: 3
-      remediateLastFailure: true # remediate the last failure, when no retries remain
-    cleanupOnFail: true
-  rollback:
-    timeout: 1m
-    cleanupOnFail: true
   values:
     image:
       repository: plexinc/pms-docker
@@ -60,8 +48,8 @@ spec:
         kubernetes.io/ingress.class: "nginx"
       hosts: [watch.56k.jp]
       tls:
-      - hosts:
-        - watch.56k.jp
+        - hosts:
+            - watch.56k.jp
     persistence:
       transcode:
         enabled: true
@@ -73,15 +61,15 @@ spec:
         size: 250Gi
         accessMode: ReadWriteOnce
       extraMounts:
-      - name: tank-franxx
-        claimName: nfs-tank-franxx
+        - name: tank-franxx
+          claimName: nfs-tank-franxx
     affinity:
       nodeAffinity:
         preferredDuringSchedulingIgnoredDuringExecution:
-        - weight: 1
-          preference:
-            matchExpressions:
-            - key: kubernetes.io/hostname
-              operator: In
-              values:
-              - franxx
+          - weight: 1
+            preference:
+              matchExpressions:
+                - key: kubernetes.io/hostname
+                  operator: In
+                  values:
+                    - franxx

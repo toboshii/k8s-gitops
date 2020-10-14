@@ -1,3 +1,4 @@
+---
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -13,13 +14,13 @@ spec:
     server: franxx
     path: /tank/share
   mountOptions:
-    # - tcp
-    # - intr
-    # - hard
-    # - noatime
-    # - nodiratime
-    # - rsize=1048576
-    # - wsize=1048576
+  # - tcp
+  # - intr
+  # - hard
+  # - noatime
+  # - nodiratime
+  # - rsize=1048576
+  # - wsize=1048576
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim

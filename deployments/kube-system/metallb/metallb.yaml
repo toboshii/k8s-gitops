@@ -1,3 +1,4 @@
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
@@ -14,28 +15,15 @@ spec:
         name: bitnami-charts
         namespace: gotk-system
       interval: 5m
-  test:
-    enable: false # Enable helm test
-  install:
-    remediation: # perform remediation when helm install fails
-      retries: 3
-  upgrade:
-    remediation: # perform remediation when helm upgrade fails
-      retries: 3
-      remediateLastFailure: true # remediate the last failure, when no retries remain
-    cleanupOnFail: true
-  rollback:
-    timeout: 1m
-    cleanupOnFail: true
   values:
     configInline:
       peers:
-      - peer-address: 10.0.30.1
-        peer-asn: 64512
-        my-asn: 64512
+        - peer-address: 10.0.30.1
+          peer-asn: 64512
+          my-asn: 64512
       address-pools:
-      - name: default
-        protocol: bgp
-        addresses:
-        - 10.0.35.64/26
-        avoid-buggy-ips: true
+        - name: default
+          protocol: bgp
+          addresses:
+            - 10.0.35.64/26
+          avoid-buggy-ips: true
