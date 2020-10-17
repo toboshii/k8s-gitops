@@ -1,0 +1,9 @@
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: Runner
+metadata:
+  name: warship-config-runner
+  namespace: actions-runner-system
+spec:
+  repository: The-Eye-Team/warship-config
+  env: []

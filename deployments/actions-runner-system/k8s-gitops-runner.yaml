@@ -1,0 +1,11 @@
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: Runner
+metadata:
+  name: k8s-gitops-runner
+  namespace: actions-runner-system
+spec:
+  repository: toboshii/k8s-gitops
+  image: onedr0p/actions-runner:latest
+  imagePullPolicy: Always
+  env: []
