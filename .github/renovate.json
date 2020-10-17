@@ -2,7 +2,6 @@
   "helm-values": {
     "fileMatch": ["deployments/.+\\.yaml$"]
   },
-  {
   "packageRules": [
     {
       "datasources": ["docker"],
@@ -10,5 +9,4 @@
       "versioning": "semver"
     }
   ]
-}
 }
