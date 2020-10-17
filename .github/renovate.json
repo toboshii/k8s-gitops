@@ -1,0 +1,5 @@
+{
+  "helm-values": {
+    "fileMatch": ["deployments/.+\\.yaml$"]
+  }
+}
