@@ -1,0 +1,31 @@
+---
+version: "3"
+
+env:
+  KUBECONFIG: ./kubeconfig
+
+tasks:
+  generate:
+    desc: Generate secrets and sample env
+    cmds:
+      - task: generate-sealed-secrets
+      - task: generate-sample-env
+  generate-sealed-secrets:
+    desc: Generate secrets
+    cmds:
+      - ./hack/generate-sealed-secrets.sh
+    preconditions:
+      - test -f .cluster-secrets.env
+  generate-sample-env:
+    desc: Generate sample env
+    cmds:
+      - ./hack/generate-sample-env.sh
+  validate-sealed-secrets:
+    desc: Validate sealed-secrets
+    cmds:
+      - kubeseal --validate < ./deployments/zz_generated_secrets.yaml
+        --controller-name=sealed-secrets
+  apply-sealed-secrets:
+    desc: Apply secrets to the Kubernetes cluster
+    cmds:
+      - kubectl apply -f ./deployments/zz_generated_secrets.yaml
