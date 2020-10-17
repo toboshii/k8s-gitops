@@ -150,5 +150,6 @@ spec:
       fullnameOverride: kube-state-metrics
     prometheus-node-exporter:
       fullnameOverride: node-exporter
-  valueFileSecrets:
-    - name: "kube-prometheus-stack-helm-values"
+  valuesFrom:
+    - kind: Secret
+      name: "kube-prometheus-stack-helm-values"
