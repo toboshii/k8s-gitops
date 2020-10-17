@@ -6,7 +6,7 @@
     {
       "datasources": ["docker"],
       "packageNames": ["plexinc/pms-docker"],
-      "versioning": "semver"
+      "versioning": "loose"
     }
   ]
 }
