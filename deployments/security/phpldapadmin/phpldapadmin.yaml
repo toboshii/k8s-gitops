@@ -33,7 +33,7 @@ spec:
       PHPLDAPADMIN_HTTPS: "false"
       PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
       PHPLDAPADMIN_LDAP_HOSTS_FRIENDLY: "true"
-      PHPLDAPADMIN_LDAP_HOSTS:
+      PHPLDAPADMIN_LDAP_HOSTS: |
         - 56k:
             - server:
                 - host: openldap
