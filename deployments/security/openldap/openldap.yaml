@@ -23,9 +23,6 @@ spec:
     tls:
       enabled: true
       secret: ldap-56k-jp-tls
-      CA:
-        enabled: true
-        secret: ldap-56k-jp-tls
     service:
       type: LoadBalancer
       externalIPs:
