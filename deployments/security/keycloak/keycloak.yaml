@@ -1,0 +1,38 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: keycloak
+  namespace: security
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: keycloak
+      version: 9.4.0
+      sourceRef:
+        kind: HelmRepository
+        name: codecentric-charts
+        namespace: gotk-system
+      interval: 5m
+  values:
+    image:
+      repository: docker.io/jboss/keycloak
+      tag: 11.0.2
+    ingress:
+      enabled: true
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-buffer-size: 128k
+      rules:
+        - host: idp.56k.jp
+          paths:
+            - /
+      tls:
+        - hosts:
+            - idp.56k.jp
+    postgresql:
+      persistence:
+        size: 20Gi
+  valuesFrom:
+    - kind: Secret
+      name: "keycloak-helm-values"
