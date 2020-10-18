@@ -33,11 +33,5 @@ spec:
       PHPLDAPADMIN_HTTPS: "false"
       PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
       PHPLDAPADMIN_LDAP_HOSTS_FRIENDLY: "true"
-      PHPLDAPADMIN_LDAP_HOSTS: |
-        - 56k:
-            - server:
-                - host: openldap
-                - tls: true
-            - login:
-                - bind_id: cn=admin,dc=56k,dc=jp
+      PHPLDAPADMIN_LDAP_HOSTS: openldap
       PHPLDAPADMIN_SERVER_PATH: "/"
