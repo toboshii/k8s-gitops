@@ -33,5 +33,8 @@ spec:
       PHPLDAPADMIN_HTTPS: "false"
       PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
       PHPLDAPADMIN_LDAP_HOSTS_FRIENDLY: "true"
-      PHPLDAPADMIN_LDAP_HOSTS: openldap
       PHPLDAPADMIN_SERVER_PATH: "/"
+      PHPLDAPADMIN_LDAP_HOSTS:
+        "#PYTHON2BASH:[{'ldap.56k.jp': [{'server': [{'host': 'openldap'}]},
+        {'login': [{'bind_id': 'cn=admin,dc=56k,dc=jp'}]}, {'auto_number':
+        [{'min': 2000000000}]}]}]"
