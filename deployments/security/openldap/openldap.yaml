@@ -23,6 +23,9 @@ spec:
     tls:
       enabled: true
       secret: ldap-56k-jp-tls
+      CA:
+        enabled: true
+        secret: ldap-56k-jp-tls
     service:
       type: LoadBalancer
       externalIPs:
@@ -31,6 +34,7 @@ spec:
       LDAP_ORGANISATION: "56k"
       LDAP_DOMAIN: "56k.jp"
       LDAP_TLS: "true"
+      LDAP_TLS_CA_CRT_FILENAME: "tls.crt"
       LDAP_TLS_ENFORCE: "false"
       LDAP_RFC2307BIS_SCHEMA: "true"
     persistence:
