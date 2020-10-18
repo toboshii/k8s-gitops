@@ -27,8 +27,8 @@ spec:
       hosts:
         - ldap-admin.56k.jp
       tls:
-        hosts:
-          - ldap-admin.56k.jp
+        - hosts:
+            - ldap-admin.56k.jp
     env:
       PHPLDAPADMIN_HTTPS: "false"
       PHPLDAPADMIN_TRUST_PROXY_SSL: "true"
