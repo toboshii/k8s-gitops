@@ -33,7 +33,6 @@ spec:
       LDAP_TLS: "true"
       LDAP_TLS_CA_CRT_FILENAME: "tls.crt"
       LDAP_TLS_ENFORCE: "false"
-      LDAP_RFC2307BIS_SCHEMA: "true"
     persistence:
       enabled: true
   valuesFrom:
