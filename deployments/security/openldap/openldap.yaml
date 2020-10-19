@@ -31,6 +31,7 @@ spec:
       LDAP_ORGANISATION: "56k"
       LDAP_DOMAIN: "56k.jp"
       LDAP_RFC2307BIS_SCHEMA: "true"
+      LDAP_BACKEND: "mdb"
       LDAP_TLS: "true"
       LDAP_TLS_CA_CRT_FILENAME: "tls.crt"
       LDAP_TLS_ENFORCE: "false"
