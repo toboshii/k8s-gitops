@@ -4,7 +4,7 @@ grafana:
     auth.generic_oauth:
       enabled: true
       allow_sign_up: true
-      name: Keycloak
+      name: 56k
       client_id: "${GRAFANA_OAUTH_CLIENT_ID}"
       client_secret: "${GRAFANA_OAUTH_CLIENT_SECRET}"
       scopes: openid profile email
