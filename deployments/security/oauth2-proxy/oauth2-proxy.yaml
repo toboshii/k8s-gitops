@@ -25,8 +25,8 @@ spec:
       hosts:
         - auth.56k.jp
       tls:
-        hosts:
-          - auth.56k.jp
+        - hosts:
+            - auth.56k.jp
     extraArgs:
       provider: keycloak
       login-url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/auth"
