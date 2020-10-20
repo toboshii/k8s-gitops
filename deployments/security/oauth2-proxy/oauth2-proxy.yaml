@@ -28,11 +28,13 @@ spec:
         - hosts:
             - auth.56k.jp
     extraArgs:
-      provider: keycloak
+      provider: oidc
+      provider-display-name: "56k"
+      oidc-issuer-url: "https://idp.56k.jp/auth/realms/56k"
       login-url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/auth"
       redeem-url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/token"
       validate-url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/userinfo"
-      keycloak-group: /users
+      skip-provider-button: true
       email-domain: "*"
       cookie-domain: ".56k.jp"
       whitelist-domain: ".56k.jp"
