@@ -1,14 +1,14 @@
 grafana:
   adminPassword: "${GRAFANA_PASSWORD}"
   grafana.ini:
-  auth.generic_oauth:
-    enabled: true
-    allow_sign_up: true
-    name: Keycloak
-    client_id: "${GRAFANA_OAUTH_CLIENT_ID}"
-    client_secret: "${GRAFANA_OAUTH_CLIENT_SECRET}"
-    scopes: openid profile email
-    auth_url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/auth"
-    token_url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/token"
-    api_url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/userinfo"
-    role_attribute_path: groups
+    auth.generic_oauth:
+      enabled: true
+      allow_sign_up: true
+      name: Keycloak
+      client_id: "${GRAFANA_OAUTH_CLIENT_ID}"
+      client_secret: "${GRAFANA_OAUTH_CLIENT_SECRET}"
+      scopes: openid profile email
+      auth_url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/auth"
+      token_url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/token"
+      api_url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/userinfo"
+      role_attribute_path: groups
