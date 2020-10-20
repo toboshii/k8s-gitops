@@ -1,0 +1,41 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: oauth2-proxy
+  namespace: security
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: oauth2-proxy
+      version: 3.2.3
+      sourceRef:
+        kind: HelmRepository
+        name: kubernetes-stable-charts
+        namespace: gotk-system
+      interval: 5m
+  values:
+    image:
+      repository: quay.io/pusher/oauth2_proxy
+      tag: v5.1.0
+    replicaCount: 2
+    ingress:
+      enabled: true
+      hosts:
+        - auth.56k.jp
+      tls:
+        hosts:
+          - auth.56k.jp
+    extraArgs:
+      provider: keycloak
+      login-url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/auth"
+      redeem-url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/token"
+      validate-url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/userinfo"
+      keycloak-group: /users
+      email-domain: "*"
+      cookie-domain: ".56k.jp"
+      whitelist-domain: ".56k.jp"
+  valuesFrom:
+    - kind: Secret
+      name: "oauth2-proxy-helm-values"
