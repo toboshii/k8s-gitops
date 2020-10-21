@@ -31,6 +31,10 @@ spec:
           enabled: true
           name: "bitwarden-admin"
           tokenKey: "admin-token"
+      smtp:
+        enabled: true
+        from: "bitwarden@56k.jp"
+        fromName: "56k Bitwarden"
     persistence:
       enabled: true
       size: 10Gi
