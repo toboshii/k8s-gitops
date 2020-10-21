@@ -89,6 +89,14 @@ kubectl create secret generic controller-manager \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
 
+# Bitwarden admin
+kubectl create secret generic bitwarden-admin \
+    --from-literal=admin-token="${BITWARDEN_ADMIN_TOKEN}" \
+    --namespace utility --dry-run=client -o json |
+    kubeseal --format=yaml --cert="${PUB_CERT}" \
+        >>"${GENERATED_SECRETS}"
+echo "---" >>"${GENERATED_SECRETS}"
+
 # Remove empty new-lines
 sed -i '/^[[:space:]]*$/d' "${GENERATED_SECRETS}"
 

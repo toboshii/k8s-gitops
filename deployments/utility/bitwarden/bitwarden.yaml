@@ -1,0 +1,43 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: bitwarden
+  namespace: utility
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: bitwardenrs
+      version: 1.0.0
+      sourceRef:
+        kind: HelmRepository
+        name: k8s-at-home-charts
+        namespace: gotk-system
+      interval: 5m
+  # Depends on having the sealed secret to un-encrypted required secrets.
+  dependsOn:
+    - name: sealed-secrets
+      namespace: kube-system
+  values:
+    image:
+      repository: bitwardenrs/server
+      version: 1.17.0
+    bitwardenrs:
+      domain: "password.56k.jp"
+      admin:
+        existingSecret:
+          enabled: true
+          name: "bitwarden-admin"
+          tokenKey: "admin-token"
+    persistence:
+      enabled: true
+      size: 10Gi
+    ingress:
+      enabled: true
+      hosts:
+        - host: "password.56k.jp"
+          paths: []
+      tls:
+        - hosts:
+            - "password.56k.jp"
