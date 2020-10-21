@@ -37,7 +37,7 @@ spec:
       enabled: true
       hosts:
         - host: "password.56k.jp"
-          paths: []
+          paths: ["/"]
       tls:
         - hosts:
             - "password.56k.jp"
