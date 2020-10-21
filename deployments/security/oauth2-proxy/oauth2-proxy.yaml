@@ -19,7 +19,7 @@ spec:
     image:
       repository: quay.io/pusher/oauth2_proxy
       tag: v6.1.1
-    replicaCount: 2
+    replicaCount: 1
     ingress:
       enabled: true
       hosts:
