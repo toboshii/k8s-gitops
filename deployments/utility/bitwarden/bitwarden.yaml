@@ -46,3 +46,6 @@ spec:
       tls:
         - hosts:
             - "password.56k.jp"
+  valuesFrom:
+    - kind: Secret
+      name: "bitwarden-helm-values"
