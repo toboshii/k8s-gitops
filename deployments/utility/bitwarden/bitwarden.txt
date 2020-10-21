@@ -1,5 +1,3 @@
 bitwardenrs:
   smtp:
     host: "${BITWARDEN_SMTP_HOST}"
-    user: "${BITWARDEN_SMTP_USERNAME}"
-    password: "${BITWARDEN_SMTP_PASSWORD}"

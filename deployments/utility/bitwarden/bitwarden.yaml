@@ -35,6 +35,11 @@ spec:
         enabled: true
         from: "bitwarden@56k.jp"
         fromName: "56k Bitwarden"
+        existingSecret:
+          enabled: true
+          name: "bitwarden-smtp"
+          userKey: "smtp-user"
+          passwordKey: "smtp-password"
     persistence:
       enabled: true
       size: 10Gi
