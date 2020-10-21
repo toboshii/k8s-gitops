@@ -11,4 +11,4 @@ grafana:
       auth_url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/auth"
       token_url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/token"
       api_url: "https://idp.56k.jp/auth/realms/56k/protocol/openid-connect/userinfo"
-      role_attribute_path: "contains(info.groups[*], 'monitoring-admin') && 'Admin' || contains(info.groups[*], 'monitoring-editor') && 'Editor' || 'Viewer'"
+      role_attribute_path: "contains(groups[*], 'monitoring-admin') && 'Admin' || contains(groups[*], 'monitoring-editor') && 'Editor' || 'Viewer'"
