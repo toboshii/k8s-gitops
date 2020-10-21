@@ -22,9 +22,10 @@ spec:
   values:
     image:
       repository: bitwardenrs/server
-      version: 1.17.0
+      tag: 1.17.0-alpine
+    fullnameOverride: bitwarden
     bitwardenrs:
-      domain: "password.56k.jp"
+      domain: "https://password.56k.jp"
       admin:
         existingSecret:
           enabled: true
