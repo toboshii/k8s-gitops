@@ -1,0 +1,40 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: nexus
+  namespace: utility
+spec:
+  interval: 5m
+  chart:
+    spec:
+      chart: nexus-repository-manager
+      version: 28.1.1
+      sourceRef:
+        kind: HelmRepository
+        name: sonatype-charts
+        namespace: gotk-system
+      interval: 5m
+  # Depends on having the sealed secret to un-encrypted required secrets.
+  dependsOn:
+    - name: sealed-secrets
+      namespace: kube-system
+  values:
+    image:
+      repository: sonatype/nexus3
+      tag: 3.28.1
+    nexus:
+      resources:
+        request:
+          cpu: 250m
+          memory: 4800Mi
+    ingress:
+      enabled: true
+      hostRepo: packages.56k.jp
+      hostDocker: registry.56k.jp
+      tls:
+        - hosts:
+            - packages.56k.jp
+            - registry.56k.jp
+    persistence:
+      storageSize: 50Gi

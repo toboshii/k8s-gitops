@@ -17,6 +17,7 @@ resources:
   - ./helm-chart-repositories/grafana-loki-charts.yaml
   - ./helm-chart-repositories/codecentric-charts.yaml
   - ./helm-chart-repositories/cetic-charts.yaml
+  - ./helm-chart-repositories/sonatype-charts.yaml
   - ./notifications/slack-alert.yaml
   - ./notifications/slack-provider.yaml
   - ./notifications/slack-secret-sealed.yaml

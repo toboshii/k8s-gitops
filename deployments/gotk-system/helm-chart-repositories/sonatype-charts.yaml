@@ -1,0 +1,10 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta1
+kind: HelmRepository
+metadata:
+  name: oteemo-charts
+  namespace: gotk-system
+spec:
+  interval: 24h
+  url: https://sonatype.github.io/helm3-charts/
+  timeout: 3m
