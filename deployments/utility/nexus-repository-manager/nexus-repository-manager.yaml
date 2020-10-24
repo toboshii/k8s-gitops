@@ -25,7 +25,7 @@ spec:
       tag: 3.28.1
     nexus:
       resources:
-        request:
+        requests:
           cpu: 250m
           memory: 4800Mi
     ingress:
