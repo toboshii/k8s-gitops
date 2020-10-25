@@ -1,6 +1,7 @@
 ignore: |
   .yamllint.yaml
   .github/
+  deployments/gotk-system
   deployments/zz_generated_secrets.yaml
 extends: default
 rules:
