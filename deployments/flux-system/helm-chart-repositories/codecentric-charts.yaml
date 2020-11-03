@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: grafana-loki-charts
-  namespace: gotk-system
+  name: codecentric-charts
+  namespace: flux-system
 spec:
   interval: 24h
-  url: https://grafana.github.io/loki/charts
+  url: https://codecentric.github.io/helm-charts
   timeout: 3m

@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: k8s-at-home-charts
-  namespace: gotk-system
+  name: longhorn-charts
+  namespace: flux-system
 spec:
   interval: 24h
-  url: https://k8s-at-home.com/charts/
+  url: https://charts.longhorn.io
   timeout: 3m

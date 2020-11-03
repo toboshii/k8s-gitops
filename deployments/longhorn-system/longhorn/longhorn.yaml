@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: longhorn-charts
-        namespace: gotk-system
+        namespace: flux-system
       interval: 5m
   values:
     persistence:

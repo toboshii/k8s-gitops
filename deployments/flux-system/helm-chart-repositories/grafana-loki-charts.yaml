@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: sonatype-charts
-  namespace: gotk-system
+  name: grafana-loki-charts
+  namespace: flux-system
 spec:
   interval: 24h
-  url: https://sonatype.github.io/helm3-charts/
+  url: https://grafana.github.io/loki/charts
   timeout: 3m

@@ -13,7 +13,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: minio-charts
-        namespace: gotk-system
+        namespace: flux-system
       interval: 5m
   # Depends on having the sealed secret to un-encrypted required secrets.
   dependsOn:

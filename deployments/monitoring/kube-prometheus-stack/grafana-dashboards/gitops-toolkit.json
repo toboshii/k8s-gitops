@@ -56,9 +56,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "last"
-          ],
+          "calcs": ["last"],
           "fields": "",
           "values": false
         },
@@ -119,9 +117,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -180,9 +176,7 @@
       "options": {
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
+          "calcs": ["lastNotNull"],
           "fields": "",
           "values": false
         },
@@ -245,9 +239,7 @@
         "justifyMode": "auto",
         "orientation": "auto",
         "reduceOptions": {
-          "calcs": [
-            "mean"
-          ],
+          "calcs": ["mean"],
           "fields": "",
           "values": false
         },
@@ -1385,17 +1377,15 @@
   "refresh": "10s",
   "schemaVersion": 26,
   "style": "light",
-  "tags": [
-    "gitops-toolkit"
-  ],
+  "tags": ["gitops-toolkit"],
   "templating": {
     "list": [
       {
         "allValue": null,
         "current": {
           "selected": false,
-          "text": "gotk-system",
-          "value": "gotk-system"
+          "text": "flux-system",
+          "value": "flux-system"
         },
         "datasource": "Prometheus",
         "definition": "workqueue_work_duration_seconds_count",

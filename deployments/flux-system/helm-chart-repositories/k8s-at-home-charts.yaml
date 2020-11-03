@@ -2,9 +2,9 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: codecentric-charts
-  namespace: gotk-system
+  name: k8s-at-home-charts
+  namespace: flux-system
 spec:
   interval: 24h
-  url: https://codecentric.github.io/helm-charts
+  url: https://k8s-at-home.com/charts/
   timeout: 3m
