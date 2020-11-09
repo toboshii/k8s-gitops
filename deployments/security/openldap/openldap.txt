@@ -1,2 +1,0 @@
-adminPassword: "${LDAP_ADMIN_PASSWORD}"
-configPassword: "${LDAP_CONFIG_PASSWORD}"

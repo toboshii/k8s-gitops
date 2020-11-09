@@ -15,12 +15,14 @@ spec:
         name: ingress-nginx-charts
         namespace: flux-system
       interval: 5m
+  # Depends on having prometheus-operator due to service monitor resources.
+  dependsOn:
+    - name: kube-prometheus-stack
   values:
     controller:
       service:
         type: LoadBalancer
-        externalIPs:
-          - 10.0.35.64
+        loadBalancerIp: 10.0.35.64
         externalTrafficPolicy: Local
       metrics:
         enabled: true
