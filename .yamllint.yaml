@@ -3,6 +3,7 @@ ignore: |
   .github/
   deployments/flux-system
   deployments/zz_generated_secrets.yaml
+  deployments/actions-runner-system
 extends: default
 rules:
   truthy:
