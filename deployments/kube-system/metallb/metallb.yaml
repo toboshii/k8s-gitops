@@ -26,4 +26,3 @@ spec:
           protocol: bgp
           addresses:
             - 10.0.35.64/26
-          avoid-buggy-ips: true
