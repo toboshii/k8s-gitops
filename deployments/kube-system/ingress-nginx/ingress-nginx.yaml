@@ -17,7 +17,7 @@ spec:
       interval: 5m
   # Depends on having prometheus-operator due to service monitor resources.
   dependsOn:
-    - name: kube-prometheus-stack
+    - name: monitoring/kube-prometheus-stack
   values:
     controller:
       service:
