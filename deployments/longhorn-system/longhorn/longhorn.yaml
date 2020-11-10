@@ -17,11 +17,13 @@ spec:
       interval: 5m
   values:
     persistence:
-      defaultClassReplicaCount: 1
+      defaultClassReplicaCount: 3
     defaultSettings:
-      defaultReplicaCount: 1
+      defaultReplicaCount: 3
       storageMinimalAvailablePercentage: 10
       createDefaultDiskLabeledNodes: true
+      backupTarget: s3://longhorn@minio.utility:9000/longhorn
+      backupTargetCredentialSecret: longhorn-backup-secret
     ingress:
       enabled: true
       host: longhorn.56k.jp

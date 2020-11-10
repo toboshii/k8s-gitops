@@ -106,6 +106,16 @@ kubectl create secret generic bitwarden-smtp \
         >>"${GENERATED_SECRETS}"
 echo "---" >>"${GENERATED_SECRETS}"
 
+# Longhorn backup secret
+kubectl create secret generic longhorn-backup-secret \
+    --from-literal=AWS_ACCESS_KEY_ID="${LONGHORN_BACKUP_USER}" \
+    --from-literal=AWS_SECRET_ACCESS_KEY="${LONGHORN_BACKUP_SECRET}" \
+    --from-literal=AWS_ENDPOINTS="http://minio.utility:9000" \
+    --namespace longhorn-system --dry-run=client -o json |
+    kubeseal --format=yaml --cert="${PUB_CERT}" \
+        >>"${GENERATED_SECRETS}"
+echo "---" >>"${GENERATED_SECRETS}"
+
 # Remove empty new-lines
 sed -i '/^[[:space:]]*$/d' "${GENERATED_SECRETS}"
 
