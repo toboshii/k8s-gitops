@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: plexinc/pms-docker
-      tag: 1.21.0.3711-b509cc236
+      tag: 1.21.1.3830-6c22540d5
       pullPolicy: IfNotPresent
     timezone: "America/Chicago"
     allowedNetworks:
