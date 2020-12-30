@@ -26,6 +26,8 @@ spec:
       subPath: minio
     ingress:
       enabled: true
+      annotations:
+        nginx.ingress.kubernetes.io/proxy-body-size: 0
       hosts:
         - s3.56k.jp
         - s.56k.jp
