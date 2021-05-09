@@ -18,7 +18,7 @@ spec:
   values:
     image:
       repository: docker.io/jboss/keycloak
-      tag: 11.0.3
+      tag: 13.0.0
     ingress:
       enabled: true
       annotations:
