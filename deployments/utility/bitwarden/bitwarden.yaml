@@ -22,7 +22,7 @@ spec:
   values:
     image:
       repository: bitwardenrs/server
-      tag: 1.17.0
+      tag: 1.21.0
     fullnameOverride: bitwarden
     bitwardenrs:
       domain: "https://password.56k.jp"
